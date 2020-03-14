@@ -1,5 +1,6 @@
+const environment = process.env.NODE_ENV
 module.exports = {
-	environment: 'dev',
+	environment, 
 	dataBase: {
 		dbName: 'island',
 		host: 'localhost',
@@ -20,5 +21,5 @@ module.exports = {
 		detailUrl:'https://api.douban.com/v2/book/%s?apikey=0df993c66c0c636e29ecbb5344252a4a',
 		keywordUrl:'https://api.douban.com/v2/book/search?q=%s&count=%s&start=%s&apikey=0df993c66c0c636e29ecbb5344252a4a'
 	},
-	host: 'http://localhost:3000/'
+	host:  environment === 'production' ? 'http://47.99.202.46:4000/' : 'http://localhost:4000/'
 }

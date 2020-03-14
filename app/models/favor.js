@@ -54,9 +54,11 @@ class Favor extends Model{
 	}
 	static async userLikeIt(art_id, type, uid) {
 		const favor = await Favor.findOne({
-			uid,
-			art_id,
-			type
+			where: {
+				uid,
+				art_id,
+				type
+			}
 		})
 		return !!favor
 	}

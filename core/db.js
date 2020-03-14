@@ -18,7 +18,7 @@ const sequelize = new Sequelize(dbName, user, password, {
 		createdAt: 'created_at',
 		updatedAt: 'updated_at',
 		deletedAt: 'deleted_at',
-		paranoid: true, // 增加 deleted_at
+		// paranoid: true, // 增加 deleted_at
 		underscored: true, // 下划线命名
 		scopes: {
 			bh: {

@@ -127,12 +127,12 @@ class LikeValidator extends PositiveInterValidator{
 		super()
 		// const checker = new Checker(LoginType)
 		// this.validateType = checker.check.bind(checker)
-		this.validateType = checkLoginType
+		this.validateType = checkArtType
 	}
 }
 
 function checkArtType(values) {
-	let type = values.path.type
+	let type = values.path.type || values.body.type
 	if (!type) {
 		throw new Error('type是必须参数')
 	}

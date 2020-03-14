@@ -6,6 +6,16 @@
     "node_modules",
     "logs"
   ],
+  "env": {
+    "PORT": 4000,
+    "NODE_ENV": "development",
+    "REMOTE_ADDR": ""
+ },
+ "env_production": {
+     "PORT": 4000,
+     "NODE_ENV": "production",
+     "REMOTE_ADDR": ""
+ },
   "error_file": "./logs/err.log",
   "out_file": "./logs/out.log",
   "log_date_format": "YYYY-MM-DD HH:mm:ss"
