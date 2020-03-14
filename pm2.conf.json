@@ -1,4 +1,5 @@
 {
+  "name": "years",
   "app": "years",
   "script": "app",
   "watch": true,
