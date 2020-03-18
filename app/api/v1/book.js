@@ -68,7 +68,7 @@ router.get('/:book_id/short_comment', new Auth().m, async ctx => {
     id: 'book_id'
   })
   const book_id = v.get('path.book_id')
-  const comments = await Comment.getComments(bookId)
+  const comments = await Comment.getComments(book_id)
   ctx.body = {
     comments,
     book_id
