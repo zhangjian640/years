@@ -11,6 +11,17 @@ const router = new Router()
 
 router.prefix('/v1/book')
 
+router.get('/hot_keyword', async (ctx, next) => {
+  const hotBooks = await Book.getHotBook()
+  const hot = []
+  hotBooks.forEach(item => {
+    hot.push(item.HotBook.title)
+  })
+  ctx.body = {
+    hot
+  }
+})
+
 router.get('/hot_list', async (ctx, next) => {
   const books = await HotBook.getAll()
   ctx.body = books

@@ -3,8 +3,24 @@ const axios = require('axios')
 const { Sequelize, Model, Op } = require('sequelize')
 const { sequelize } = require('@root/core/db')
 const { Favor } = require('@models/favor')
+const { HotBook } = require('@models/hot-book')
 
 class Book extends Model{
+	static async getHotBook() {
+		const hotBook = await Book.findAll({
+			order: [
+				['fav_nums', 'desc']
+			],
+			limit: 10,
+			include: [
+				{
+					model: HotBook,
+					attributes: ['title']
+				}
+			]
+		})
+		return hotBook	
+	}
 	async detail(id) {
 		const url = util.format(global.config.douban.detailUrl, id)
 		const detail = await axios.get(url)
@@ -39,6 +55,10 @@ Book.init({
 }, {
 	sequelize,
 	tableName: 'book'
+})
+
+Book.belongsTo(HotBook, {
+  foreignKey: 'id',
 })
 
 module.exports = {
